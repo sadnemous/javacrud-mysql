@@ -36,7 +36,7 @@ spring-boot-crud-app
 └── README.md
 ```
 Step 2: Create build.gradle.kts
-```json
+```kotlin
 plugins {
     id("org.springframework.boot") version "2.5.4"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"

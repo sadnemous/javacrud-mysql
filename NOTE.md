@@ -1,4 +1,4 @@
-#### System - my macbook air
+### System - my macbook air
 
 ```sql
 mysql -u root
@@ -89,27 +89,88 @@ $cat /opt/homebrew/etc/my.cnf
 bind-address = 0.0.0.0
 mysqlx-bind-address = 127.0.0.1
 ```
+<img src="vimdiff.my.cnf.png">
 
-
-
-
-#### restart mysql 
+Restart mysql 
 ```bash
-mysql.server start
-
-mysql.server stop
-
+mysql.server stop;mysql.server start
+OR
 mysql.server restart
-$mysql.server restart
-Shutting down MySQL
-.... ERROR! The server quit without updating PID file (/opt/homebrew/var/mysql/soumens-MacBook-Air.local.pid).
- ERROR! Failed to stop running server, so refusing to try to start.
+```
 
+#### Test From Ubuntu (Other system in the same network)
+```bash
+[soumendas@soumens-MacBook-Air 13:07:44 Lab ]
+$ssh UB
+Welcome to Ubuntu 24.04.1 LTS (GNU/Linux 6.8.0-51-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is enabled.
+
+10 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Last login: Sat Jan 18 11:36:29 2025 from 192.168.1.176
+
+
+
+soumen@UB:~$ mysql -u soumen -p -h 192.168.1.176
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 9.1.0 Homebrew
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+
+
+mysql> use mydb;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+
+
+mysql> show tables;
++----------------+
+| Tables_in_mydb |
++----------------+
+| Employee       |
+| GenZLingo      |
+| myInfo         |
++----------------+
+3 rows in set (0.01 sec)
+
+
+
+mysql> select * from Employee;
++------+-----------+----------+
+| ID   | FirstName | LastName |
++------+-----------+----------+
+|    1 | HUAJIN    | QIN      |
+|    2 | MARTHA    | LEBDO    |
+|    3 | GARCIA    | LUKE     |
+|    4 | RAINA     | SAMAY    |
+|    5 | DIA       | MIRZA    |
++------+-----------+----------+
+5 rows in set (0.01 sec)
 
 ```
 
 
-#### System - my Ubuntu Server
+
+
+### System - my Ubuntu Server
 ```bash
 sudo mysql -u root
 ```

@@ -55,7 +55,7 @@ BUILD SUCCESSFUL in 9s
 2025-01-18T15:15:48.316-06:00  INFO 49596 --- [demoSpringBootSvc] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
 ```
 <br>
-#### <mark>Fix</mark> <br>
+#### <mark>Fix</mark>
 
 updated application.properties file as follows <br>
 

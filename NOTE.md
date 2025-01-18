@@ -57,6 +57,58 @@ mysql> select * from myInfo;
 Workbench:
 <img src="mac-wb.png">
 
+
+#### Setup - Allow Remote Access
+```
+[soumendas@soumens-MacBook-Air 13:25:13 / ]
+$find */* -name "*.cnf" -ls 2>/dev/null|grep "Jan 16"
+11383620        8 -rw-r--r--    1 soumendas        admin                 145 Jan 16 02:50 System/Volumes/Data/opt/homebrew/etc/my.cnf
+11383799        8 -rw-r-----    1 soumendas        admin                  56 Jan 16 02:51 System/Volumes/Data/opt/homebrew/var/mysql/auto.cnf
+11383620        8 -rw-r--r--    1 soumendas        admin                 145 Jan 16 02:50 Volumes/Macintosh HD/System/Volumes/Data/opt/homebrew/etc/my.cnf
+11383799        8 -rw-r-----    1 soumendas        admin                  56 Jan 16 02:51 Volumes/Macintosh HD/System/Volumes/Data/opt/homebrew/var/mysql/auto.cnf
+11383620        8 -rw-r--r--    1 soumendas        admin                 145 Jan 16 02:50 Volumes/Macintosh HD/opt/homebrew/etc/my.cnf
+11383799        8 -rw-r-----    1 soumendas        admin                  56 Jan 16 02:51 Volumes/Macintosh HD/opt/homebrew/var/mysql/auto.cnf
+11383620        8 -rw-r--r--    1 soumendas        admin                 145 Jan 16 02:50 opt/homebrew/etc/my.cnf
+11383799        8 -rw-r-----    1 soumendas        admin                  56 Jan 16 02:51 opt/homebrew/var/mysql/auto.cnf
+```
+old:
+```
+$cat /opt/homebrew/etc/my.cnf
+# Default Homebrew MySQL server config
+[mysqld]
+# Only allow connections from localhost
+bind-address = 127.0.0.1
+mysqlx-bind-address = 127.0.0.1
+```
+New: 
+```
+$cat /opt/homebrew/etc/my.cnf
+# Default Homebrew MySQL server config
+[mysqld]
+# Only allow connections from localhost
+bind-address = 0.0.0.0
+mysqlx-bind-address = 127.0.0.1
+```
+
+
+
+
+#### restart mysql 
+```bash
+mysql.server start
+
+mysql.server stop
+
+mysql.server restart
+$mysql.server restart
+Shutting down MySQL
+.... ERROR! The server quit without updating PID file (/opt/homebrew/var/mysql/soumens-MacBook-Air.local.pid).
+ ERROR! Failed to stop running server, so refusing to try to start.
+
+
+```
+
+
 #### System - my Ubuntu Server
 ```bash
 sudo mysql -u root

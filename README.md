@@ -68,5 +68,44 @@ spring.datasource.password=das
 spring.datasource.driverClassName=com.mysql.jdbc.Driver
 server.port=9008
 ```
+#### 3. So far so good. I have added following 
+model/Employee.java
+```java
+package com.sadnemous.demoSpringBootSvc.model;
+
+public record Employee (
+        int ID,
+        String FirstName,
+        String LastName
+){}
+
+```
+
+controller/DemoSpringBootSvcController.java
+```java
+package com.sadnemous.demoSpringBootSvc.controller;
+
+import com.sadnemous.demoSpringBootSvc.model.Employee;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping()
+
+public class DemoSpringBootSvcController {
+    @GetMapping("/getempsvc")
+    public ResponseEntity <Employee> getEmp ()
+    {
+        Employee emp = new Employee(31291, "Soumen", "Das");
+        return ResponseEntity.ok(emp);
+
+    }
+}
+```
+
+
+
 
 

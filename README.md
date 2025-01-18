@@ -14,7 +14,8 @@ Project Metadata:
 <img src="init.png">
 
 #### Step 2. Unzip and open with IntelliJ CE
-Gradle build failed
+1. Gradle build failed
+<mark>Fix</mark>
 Select proper JVM
 <img src="JVM-Selection.png">
 <br>
@@ -46,3 +47,22 @@ Download https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-
 
 BUILD SUCCESSFUL in 9s
 ```
+
+2. Tried to build but failed
+```log
+
+2025-01-18T15:15:48.315-06:00  WARN 49596 --- [demoSpringBootSvc] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+2025-01-18T15:15:48.316-06:00  INFO 49596 --- [demoSpringBootSvc] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+```
+<mark>Fix</mark>
+updated application.properties file as follows
+```
+spring.application.name=demoSpringBootSvc
+spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+spring.datasource.username=soumen
+spring.datasource.password=das
+spring.datasource.driverClassName=com.mysql.jdbc.Driver
+server.port=9008
+```
+
+

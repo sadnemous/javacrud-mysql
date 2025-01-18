@@ -10,12 +10,14 @@ Project Metadata:
     Package Name: com.sadnemous.demoSpringBootSvc
     Packaging: Jar
     Java: 21
+<br>
 <img src="init.png">
 
 #### Step 2. Unzip and open with IntelliJ CE
 Gradle build failed
 Select proper JVM
 <img src="JVM-Selection.png">
+<br>
 
 Restart gradle build
 ```log

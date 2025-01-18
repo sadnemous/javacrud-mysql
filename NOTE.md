@@ -170,7 +170,9 @@ mysql> select * from Employee;
 
 
 
-### System - my Ubuntu Server
+### System - my Ubuntu Server 
+#### This is from mysql locally installed in  Ubuntu Server..
+
 ```bash
 sudo mysql -u root
 ```

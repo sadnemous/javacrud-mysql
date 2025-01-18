@@ -54,6 +54,9 @@ mysql> select * from myInfo;
 5 rows in set (0.00 sec)
 ```
 
+Workbench:
+<img src="mac-wb.png">
+
 #### System - my Ubuntu Server
 ```bash
 sudo mysql -u root

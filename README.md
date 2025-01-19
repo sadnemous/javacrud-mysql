@@ -210,6 +210,24 @@ $ ./curl.sh
 }
 
 ```
+#### 5. So far so good, so Response is getting returned from Service Layer.. Now let me try to implement Repository:
+create dir `repository` and create one java file, this time use IntelliJ IDE..
+
+
+
+
+
+
+
+#### important knowledge DTO, Entity and Record
+|Sl|DTO|Record|Entity|
+|---|---|---|---|
+|1|Data Transfer Object|Same|business domain
+|2|transferring data from Controller -> Service Layer -> Repository|same|Represents a persistent data structure mapped to a database table using an ORM like JPA
+|3|Simple POJO Class|record keyword|@Entity annotation required|
+|4|Mutable|Immutable|Mutable|
+|5|||```java @Entity<br> public class User {<br> @Id<br> private Long id;<br> private String username;<br> private String email;<br> // Getters and setters<br> }<br>```|
+
 
 
 

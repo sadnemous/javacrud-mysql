@@ -105,6 +105,39 @@ public class DemoSpringBootSvcController {
 }
 ```
 
+curl.sh
+```bash
+curl -H "Accept: application/json" \
+     -H "Content-Type: application/json" \
+     -X GET http://localhost:9008/getEmpSvc 2> /dev/null|python3 -mjson.tool 
+```
+output
+```json
+{
+    "timestamp": "2025-01-18T23:53:14.181+00:00",
+    "status": 404,
+    "error": "Not Found",
+    "path": "/getEmpSvc"
+}
+```
+
+<mark>Wow, endpoint is case sensitive!! Modified the curl.sh</mark><br>
+```bash
+curl -H "Accept: application/json" \
+     -H "Content-Type: application/json" \
+     -X GET http://localhost:9008/getEmpSvc 2> /dev/null|python3 -mjson.tool 
+```
+
+output:
+```json
+{
+    "ID": 11089,
+    "FirstName": "Soumen",
+    "LastName": "Das"
+}
+```
+
+
 
 
 

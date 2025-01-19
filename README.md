@@ -198,7 +198,7 @@ public class DemoSpringBootSvcServiceImpl implements IDemoSpringBootSvcService{
 }
 ```
 Try 2. Now run.. 
-<b>OOOOO Maa Go Turu Love!! </b><br>
+<b>BUILD SUCCESS!!! OOOOO Maa Go Turu Love!! </b><br>
 Let me run the curl.sh<br>
 OUTPUT<br>
 ```bash

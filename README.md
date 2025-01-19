@@ -145,6 +145,65 @@ touch service/IDemoSpringBootSvcService.java
 touch service/DemoSpringBootSvcServiceImpl.java
 ```
 
+Try 1:
+```java
+//service/IDemoSpringBootSvcService.java
+package com.sadnemous.demoSpringBootSvc.service;
+
+import com.sadnemous.demoSpringBootSvc.model.Employee;
+
+public interface IDemoSpringBootSvcService {
+    public Employee getEmp();
+}
+```
+```java
+//service/DemoSpringBootSvcServiceImpl.java
+package com.sadnemous.demoSpringBootSvc.service;
+
+import com.sadnemous.demoSpringBootSvc.model.Employee;
+
+public class DemoSpringBootSvcServiceImpl implements IDemoSpringBootSvcService{
+    @Override
+    public Employee getEmp()
+    {
+        Employee emp = new Employee(21222, "Robin", "Hood");
+        return emp;
+    }
+}
+```
+<mark>BEN STOKES!!! FAILED!! But Why?</mark><br>
+```log
+2025-01-18T18:17:50.633-06:00  WARN 56902 --- [demoSpringBootSvc] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'demoSpringBootSvcController': Unsatisfied dependency expressed through field 'svcService': No qualifying bean of type 'com.sadnemous.demoSpringBootSvc.service.IDemoSpringBootSvcService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2025-01-18T18:17:50.633-06:00  INFO 56902 --- [demoSpringBootSvc] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-01-18T18:17:50.639-06:00  INFO 56902 --- [demoSpringBootSvc] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+```
+So the issue is `UnsatisfiedDependencyException` which means Spring Container does not have any idea about `IDemoSpringBootSvcService`
+To let Spring know about the class and make it as Bean we need `@Component` or `@Repository` or `@Service` annotation. Here I missed `@Service`..
+Let me add retry...
+<Mark> FIX</mark>
+```java
+//service/DemoSpringBootSvcServiceImpl.java
+package com.sadnemous.demoSpringBootSvc.service;
+
+import com.sadnemous.demoSpringBootSvc.model.Employee;
+@Service
+public class DemoSpringBootSvcServiceImpl implements IDemoSpringBootSvcService{
+    @Override
+    public Employee getEmp()
+    {
+        Employee emp = new Employee(21222, "Robin", "Hood");
+        return emp;
+    }
+}
+```
+Try 2. Now run.. 
+<b>OOOOO Maa Go Turu Love!! </b>
+
+
+
+
+
+
 
 
 

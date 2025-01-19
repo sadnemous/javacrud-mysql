@@ -177,9 +177,10 @@ public class DemoSpringBootSvcServiceImpl implements IDemoSpringBootSvcService{
 2025-01-18T18:17:50.633-06:00  INFO 56902 --- [demoSpringBootSvc] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
 2025-01-18T18:17:50.639-06:00  INFO 56902 --- [demoSpringBootSvc] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
 ```
-So the issue is `UnsatisfiedDependencyException` which means Spring Container does not have any idea about `IDemoSpringBootSvcService`
-To let Spring know about the class and make it as Bean we need `@Component` or `@Repository` or `@Service` annotation. Here I missed `@Service`..
-Let me add retry...
+So the issue is `UnsatisfiedDependencyException` which means Spring Container does not have any idea about `IDemoSpringBootSvcService`<br>
+To let Spring know about the class and make it as Bean we need `@Component` or `@Repository` or `@Service` etc.. annotation. <br>
+Here I missed `@Service`..<br>
+Let me add retry...<br>
 <Mark> FIX</mark>
 ```java
 //service/DemoSpringBootSvcServiceImpl.java
@@ -197,7 +198,19 @@ public class DemoSpringBootSvcServiceImpl implements IDemoSpringBootSvcService{
 }
 ```
 Try 2. Now run.. 
-<b>OOOOO Maa Go Turu Love!! </b>
+<b>OOOOO Maa Go Turu Love!! </b><br>
+Let me run the curl.sh<br>
+OUTPUT<br>
+```bash
+$ ./curl.sh
+{
+    "ID": 21222,
+    "FirstName": "Robin",
+    "LastName": "Hood"
+}
+
+```
+
 
 
 

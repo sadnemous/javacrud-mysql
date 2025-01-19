@@ -1,4 +1,4 @@
-## try a new CRUD RestAPI
+## trying a new CRUD RestAPI, it's a journy.. be patient.. It's kind of monologue. After two years will see how noob I was :laughing:
 ### Step 1. https://start.spring.io/
 Project: Gradle - Kotlin
 Language: Java

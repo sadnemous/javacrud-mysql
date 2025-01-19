@@ -1,4 +1,8 @@
-## trying a new CRUD RestAPI, it's a journy.. be patient.. It's kind of monologue. After two years will see how noob I was :laughing:
+<style>
+R { color: crimson; background-color: #f1f1f1;}    
+</style>
+## Trying a new CRUD RestAPI, 
+##### <R>it's a journy.. be patient.. It's kind of monologue. After two years will see how noob I was :laughing:</R>
 ### Step 1. https://start.spring.io/
 Project: Gradle - Kotlin
 Language: Java
@@ -219,14 +223,96 @@ create dir `repository` and create one java file, this time use IntelliJ IDE..
 
 
 
-#### important knowledge DTO, Entity and Record
+#### <R>Comparison knowledge DTO, Entity and Record</R>
 |Sl|DTO|Record|Entity|
 |---|---|---|---|
 |1|Data Transfer Object|Same|business domain
 |2|transferring data from Controller -> Service Layer -> Repository|same|Represents a persistent data structure mapped to a database table using an ORM like JPA
 |3|Simple POJO Class|record keyword|@Entity annotation required|
 |4|Mutable|Immutable|Mutable|
-|5|||```java @Entity<br> public class User {<br> @Id<br> private Long id;<br> private String username;<br> private String email;<br> // Getters and setters<br> }<br>```|
+|5|<pre>public class UserDTO {<br>   private String userid;<br>   private int age;<br>   // Getters and setters<br> }<br></pre>|``` record User(String userid, int age) { }```|<pre> @Entity<br> @Table(name = "users")<br> public class User<br>{<br>   @Id<br>   @GeneratedValue<br>   private Long id;<br>   private String userid;<br>   private int age;<br>   private String address;<br>   private String alien_status;<br>   // Getters and setters<br> }<br></pre>|
+|6|DTO to Domain mapper to be implemented, to be used in Repo|RowMapper to be implemented|Domain to DTO mapper needed
+
+#### <R>What is Record?</R>
+
+#### <R>What is RowMapper?</R>
+A `RowMapper` in Spring JDBC is a functional interface used to map a single row of a result set (from a database query) to a corresponding object in your Java application. It’s typically used with the JDBCTemplate class for query operations, allowing you to transform each row of the result set into a domain object.
+
+Key Points About `RowMapper`:
+ 1. It simplifies the mapping of database rows to Java objects, reducing boilerplate code.
+ 2. It's particularly useful when you need custom mapping logic or when working with complex result sets.
+ 3. It is used with methods like `query()` in `JdbcTemplate`.
+<br><br>
+
+ `RowMapper` Functional Interface:
+ 
+
+ ```java
+ @FunctionalInterface
+public interface RowMapper<T> {
+    T mapRow(ResultSet rs, int rowNum) throws SQLException;
+}
+```
+  `mapRow(ResultSet rs, int rowNum):` This method maps a single row of data from the `ResultSet` to an object of type `T`.
+
+
+Example: Using `RowMapper` in `JDBCTemplate`
+
+record User(String userid, int age) { }
+
+
+
+#### <R>What should I use service to repository dto or entity or record?</R>
+When using a service layer, you should generally interact with the repository using `Data Transfer Objects (DTOs)`, <br>rather than directly using `entities` or `records`,<br> as `DTO`s provide a cleaner separation of concerns by acting as a dedicated <b>data transfer mechanism</b> between layers <br>and allowing for controlled data exposure to the presentation layer, <br>while entities should remain within the data access layer
+
+#### <R>Where should I keep my DTO class?</R>
+In a Spring Boot application, you should typically place your DTO (Data Transfer Object) classes in a separate package named "dto", which is usually considered a part of the "controller" layer, as DTOs are primarily used for data exchange between the client and the application's API endpoints managed by controllers.<br>
+<br><b>Explanation:</b><br>
+<br><b>Model:</b><br>
+The "model" package is usually reserved for entities that directly represent data in your database, which are not exactly the same as DTOs as they may contain additional fields not needed for client communication.<br>
+<br><b>View:</b><br>
+The "view" package is for presentation logic, like handling how data is displayed to the user, and is not directly related to DTOs.<br>
+<br><b>Controller:</b><br>
+Since DTOs are used to transfer data between your application and the outside world (clients), the "controller" package is the most logical place to put them.<br>
+
+<br><b>Repository:</b><br>
+The "repository" package is for interacting with the database, and DTOs are not meant to be used in this layer.
+
+<br><b>
+Key points about DTOs:
+</b><br>
+ - <b>Data encapsulation</b>: DTOs encapsulate the data needed for a specific API request or response, often including only a subset of fields from the corresponding entity model.
+ - <b>Decoupling</b>: By using DTOs, you can decouple the presentation layer (controller) from the data layer (repository and entities).
+Validation: DTOs are often used to implement validation logic for incoming data.<br>
+<br><b>
+Example project structure:
+</b><br>
+```
+src
+
+  - main
+
+    - java
+
+      - com.example
+
+        - controller
+
+          - UserController.java
+
+        - dto
+
+          - UserDto.java
+
+        - model
+
+          - User.java
+
+        - repository
+
+          - UserRepository.java 
+```
+
 
 
 

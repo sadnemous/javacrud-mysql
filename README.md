@@ -1,14 +1,5 @@
 ## Trying a new CRUD RestAPI, 
 
-<style
-  type="text/css">
-h1 {color:red;}
-
-p {color:blue;}
-</style>
-okay
-
-
 > [!NOTE]
 > it's a journy.. be patient.. It's kind of monologue. After two years will see how noob I was :laughing:
 

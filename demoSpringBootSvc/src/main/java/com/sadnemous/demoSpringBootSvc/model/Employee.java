@@ -1,4 +1,7 @@
 package com.sadnemous.demoSpringBootSvc.model;
 
-public class Employee {
-}
+public record Employee (
+        int id,
+        String FirstName,
+        String LastName
+){}

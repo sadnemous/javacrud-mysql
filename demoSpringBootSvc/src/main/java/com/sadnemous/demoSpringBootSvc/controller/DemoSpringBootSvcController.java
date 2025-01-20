@@ -1,22 +1,40 @@
 package com.sadnemous.demoSpringBootSvc.controller;
 
 import com.sadnemous.demoSpringBootSvc.model.Employee;
-import org.springframework.boot.autoconfigure.orm.jpa.EntityManagerFactoryDependsOnPostProcessor;
+import com.sadnemous.demoSpringBootSvc.model.EmployeeInput;
+import com.sadnemous.demoSpringBootSvc.service.IDemoSpringBootSvcService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @RequestMapping()
+public class DemoSpringBootSvcController {
 
-public class DemoSpringBootController {
+    @Autowired
+    private IDemoSpringBootSvcService svcService;
+
     @GetMapping("/getempsvc")
     public ResponseEntity <Employee> getEmp ()
     {
-        Employee emp = new Employee(31291, "Soumen", "Das");
+        //Employee emp = new Employee(11089, "Soumen", "Das");
+        Employee emp = svcService.getEmp();
         return ResponseEntity.ok(emp);
 
+    }
+
+    @PostMapping("/employee")
+    public ResponseEntity <Employee> GetEmployee (@RequestBody EmployeeInput employeeInput)
+    {
+        Employee employee = svcService.getEmployee(employeeInput);
+        return ResponseEntity.ok(employee);
+    }
+
+    @PostMapping("/allemployees")
+    public ResponseEntity <List <Employee>> GetAllEmployee (@RequestBody EmployeeInput employeeInput)
+    {
+        List <Employee> employees = svcService.getAllEmployee(employeeInput);
+        return ResponseEntity.ok(employees);
     }
 }

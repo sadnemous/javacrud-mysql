@@ -1,7 +1,7 @@
 ## Trying a new CRUD RestAPI, 
 
-##### <font color="#f1f200">it's a journy.. be patient.. It's kind of monologue. After two years will see how noob I was :laughing:</font>
-$${\color{red}Welcome \space \color{lightblue}To \space \color{orange}Stackoverflow}$$
+##### [!NOTE]
+##### it's a journy.. be patient.. It's kind of monologue. After two years will see how noob I was :laughing:
 
 ### Step 1. https://start.spring.io/
 Project: Gradle - Kotlin

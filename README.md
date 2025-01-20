@@ -2,7 +2,7 @@
 R { color: crimson; background-color: #f1f1f1;}    
 </style>
 ## Trying a new CRUD RestAPI, 
-##### <R>it's a journy.. be patient.. It's kind of monologue. After two years will see how noob I was :laughing:</R>
+##### <font style="color: crimson; background-color: #f1f1f1;">it's a journy.. be patient.. It's kind of monologue. After two years will see how noob I was :laughing:</font>
 ### Step 1. https://start.spring.io/
 Project: Gradle - Kotlin
 Language: Java
@@ -223,7 +223,7 @@ create dir `repository` and create one java file, this time use IntelliJ IDE..
 
 
 
-#### <R>Comparison knowledge DTO, Entity and Record</R>
+#### <font style="color: crimson; background-color: #f1f1f1;">Comparison knowledge DTO, Entity and Record</font>
 |Sl|DTO|Record|Entity|
 |---|---|---|---|
 |1|Data Transfer Object|Same|business domain
@@ -233,9 +233,9 @@ create dir `repository` and create one java file, this time use IntelliJ IDE..
 |5|<pre>public class UserDTO {<br>   private String userid;<br>   private int age;<br>   // Getters and setters<br> }<br></pre>|``` record User(String userid, int age) { }```|<pre> @Entity<br> @Table(name = "users")<br> public class User<br>{<br>   @Id<br>   @GeneratedValue<br>   private Long id;<br>   private String userid;<br>   private int age;<br>   private String address;<br>   private String alien_status;<br>   // Getters and setters<br> }<br></pre>|
 |6|DTO to Domain mapper to be implemented, to be used in Repo|RowMapper to be implemented|Domain to DTO mapper needed
 
-#### <R>What is Record?</R>
+#### <font style="color: crimson; background-color: #f1f1f1;">What is Record?</font>
 
-#### <R>What is RowMapper?</R>
+#### <font style="color: crimson; background-color: #f1f1f1;">What is RowMapper?</font>
 A `RowMapper` in Spring JDBC is a functional interface used to map a single row of a result set (from a database query) to a corresponding object in your Java application. It’s typically used with the JDBCTemplate class for query operations, allowing you to transform each row of the result set into a domain object.
 
 Key Points About `RowMapper`:
@@ -262,10 +262,10 @@ record User(String userid, int age) { }
 
 
 
-#### <R>What should I use service to repository dto or entity or record?</R>
+#### <font style="color: crimson; background-color: #f1f1f1;">What should I use service to repository dto or entity or record?</font>
 When using a service layer, you should generally interact with the repository using `Data Transfer Objects (DTOs)`, <br>rather than directly using `entities` or `records`,<br> as `DTO`s provide a cleaner separation of concerns by acting as a dedicated <b>data transfer mechanism</b> between layers <br>and allowing for controlled data exposure to the presentation layer, <br>while entities should remain within the data access layer
 
-#### <R>Where should I keep my DTO class?</R>
+#### <font style="color: crimson; background-color: #f1f1f1;">Where should I keep my DTO class?</font>
 In a Spring Boot application, you should typically place your DTO (Data Transfer Object) classes in a separate package named "dto", which is usually considered a part of the "controller" layer, as DTOs are primarily used for data exchange between the client and the application's API endpoints managed by controllers.<br>
 <br><b>Explanation:</b><br>
 <br><b>Model:</b><br>

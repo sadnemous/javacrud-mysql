@@ -319,9 +319,87 @@ public interface RowMapper<T> {
 
 
 Example: Using `RowMapper` in `JDBCTemplate`
+```java
+// If you have a POJO class called "Customer" with properties like id, name, etc.
+//com.example.custormer.model
+//CustomerRowMapper.java
+public class CustomerRowMapper implements RowMapper<Customer> {
 
-record User(String userid, int age) { }
+    @Override
+    public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Customer customer = new Customer();
+        customer.setId(rs.getInt("id"));
+        customer.setName(rs.getString("name"));
+        // ... set other properties
+        return customer;
+    }
+}
 
+// In your DAO class
+//com.example.custormer.dao or 
+//com.example.custormer.repository or 
+//CustomerRepository.java
+JdbcTemplate jdbcTemplate;
+
+public List<Customer> getAllCustomers() {
+    String sql = "SELECT * FROM customers";
+    return jdbcTemplate.query(sql, new CustomerRowMapper()); 
+}
+```
+
+```java
+// If you have a Record "Customer" with properties like id, name, etc.
+//com.example.custormer.model
+//CustomerRowMapper.java
+public class CustomerRowMapper implements RowMapper<Customer> {
+
+    @Override
+    public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Customer customer = new Customer(
+          rs.getInt("id"),
+          rs.getString("name")
+        );
+        return customer;
+    }
+}
+
+// In your DAO or Repository class
+//com.example.custormer.dao or 
+//com.example.custormer.repository or 
+//CustomerRepository.java
+JdbcTemplate jdbcTemplate;
+
+public List<Customer> getAllCustomers() {
+    String sql = "SELECT * FROM customers";
+    return jdbcTemplate.query(sql, new CustomerRowMapper()); 
+}
+```
+
+One thing if we want to avoid separate RowMapper class we could use lambda function
+```java
+import org.springframework.jdbc.core.JdbcTemplate;
+import java.util.List;
+
+public class Example {
+
+    private final JdbcTemplate jdbcTemplate;
+
+    public Example(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public List<User> getUsers() {
+        String sql = "SELECT id, name, email FROM users";
+        return jdbcTemplate.query(sql, (rs, rowNum) -> new User(
+                rs.getInt("id"),
+                rs.getString("name"),
+                rs.getString("email")
+        ));
+    }
+}
+
+record User(int id, String name, String email) {}
+```
 
 
 #### <mark>What should I use service to repository dto or entity or record?</mark>
@@ -351,29 +429,28 @@ Example project structure:
 </b><br>
 ```
 src
-
   - main
-
     - java
-
       - com.example
+        - Application.java
 
         - controller
-
           - UserController.java
 
         - dto
-
           - UserDto.java
 
         - model
-
           - User.java
 
         - repository
-
           - UserRepository.java 
 ```
+
+
+#### 6. What is the status of trying getting data from dababase?
+
+
 
 
 

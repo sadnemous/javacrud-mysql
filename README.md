@@ -1,9 +1,9 @@
-## Trying a new CRUD RestAPI, 
+## <mark>Trying a new CRUD RestAPI</mark>
 
 > [!NOTE]
 > it's a journy.. be patient.. It's kind of monologue. After two years will see how noob I was :laughing:
 
-### Step 1. https://start.spring.io/
+### <mark>Step 1. https://start.spring.io/</mark>
 Project: Gradle - Kotlin
 Language: Java
 Spring Boot: 3.4.1
@@ -17,7 +17,7 @@ Project Metadata:
 <br>
 <img src="init.png">
 
-### Step 2. Unzip and open with IntelliJ CE
+### <mark>Step 2. Unzip and open with IntelliJ CE</mark>
 #### 1. Gradle build failed<br>
 ##### <mark>Fix</mark>
 Select proper JVM<br>
@@ -52,7 +52,7 @@ Download https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-
 BUILD SUCCESSFUL in 9s
 ```
 
-#### 2. Tried to build but failed
+#### <mark>2. Tried to build but failed</mark>
 ```log
 
 2025-01-18T15:15:48.315-06:00  WARN 49596 --- [demoSpringBootSvc] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
@@ -72,7 +72,7 @@ spring.datasource.password=das
 spring.datasource.driverClassName=com.mysql.jdbc.Driver
 server.port=9008
 ```
-#### 3. So far so good. I have added following 
+####  <mark>3. So far so good. I have added following</mark>
 model/Employee.java
 ```java
 package com.sadnemous.demoSpringBootSvc.model;
@@ -141,7 +141,7 @@ output:
 }
 ```
 
-#### 4. Time to create service layer:
+####  <mark>4. Time to create service layer:</mark>
 create dir service and create two java file:
 ```bash
 mkdir service
@@ -214,7 +214,7 @@ $ ./curl.sh
 }
 
 ```
-#### 5. So far so good, so Response is getting returned from Service Layer.. Now let me try to implement Repository:
+####  <mark>5. So far so good, so Response is getting returned from Service Layer.. Now let me try to implement Repository:</mark>
 create dir `repository` and create one java file, this time use IntelliJ IDE..
 
 
@@ -223,7 +223,7 @@ create dir `repository` and create one java file, this time use IntelliJ IDE..
 
 
 
-#### ">Comparison knowledge DTO, Entity and Record</mark>
+####  <mark>Comparison knowledge DTO, Entity and Record</mark>
 |Sl|DTO|Record|Entity|
 |---|---|---|---|
 |1|Data Transfer Object|Same|business domain
@@ -448,7 +448,24 @@ src
 ```
 
 
-#### 6. What is the status of trying getting data from dababase?
+####  <mark>6. What is the status of trying getting data from dababase?</mark>
+Oh!! I forgot, yeah it was a ride, 
+- so many new concepts,
+- confusion like DTO or Records or POJO class,
+- confusion like repository or dao..
+- rowmapper
+- canonical constructor - simple thing heavy name 😆
+- My Record class has field name ID, because it starts with Uppercase there was issue.. and error msg was not at all helping. may be because I am really new to this world.
+- Now all good and uploaded to https://github.com/sadnemous/javacrud-mysql/tree/main/demoSpringBootSvc
+
+
+#### <mark>7. What Next?</mark>
+Many things are unknown, will cover and implement like
+- Unit testing (JUnit)
+- Test Coverage (Jacoco)
+- Full Fledge Exception Handling..
+
+
 
 
 

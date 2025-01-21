@@ -125,7 +125,7 @@ output
 }
 ```
 
-<mark>Wow, endpoint is case sensitive!! Modified the curl.sh</mark><br>
+<b><mark>Wow, endpoint is case sensitive!! Modified the curl.sh</mark></b><br>
 ```bash
 curl -H "Accept: application/json" \
      -H "Content-Type: application/json" \
@@ -233,11 +233,73 @@ create dir `repository` and create one java file, this time use IntelliJ IDE..
 |5|<pre>public class UserDTO {<br>   private String userid;<br>   private int age;<br>   // Getters and setters<br> }<br></pre>|``` record User(String userid, int age) { }```|<pre> @Entity<br> @Table(name = "users")<br> public class User<br>{<br>   @Id<br>   @GeneratedValue<br>   private Long id;<br>   private String userid;<br>   private int age;<br>   private String address;<br>   private String alien_status;<br>   // Getters and setters<br> }<br></pre>|
 |6|DTO to Domain mapper to be implemented, to be used in Repo|RowMapper to be implemented|Domain to DTO mapper needed
 
-#### <mark>>What is Record?</mark>
+#### <mark>What is Record?</mark>
+In Java, a record is a special kind of class introduced in Java 14 that acts as a transparent carrier for immutable data. It's a concise way to define a class that primarily holds data, without the need to write boilerplate code like constructors, getters, setters, equals(), hashCode(), and toString() methods
 
-#### <mark>>What is RowMapper?</mark>
+[!IMPORTANT]  
+<b>Key Points:</b>
+- <b>Immutable Data</b>:
+  The fields of a record are final, meaning they cannot be changed once the record is created.
+- <b>Concise Syntax</b>:
+  The declaration is simpler than a traditional class.
+- <b>Automatic Generation</b>:
+The compiler automatically generates the constructor, getters, equals(), hashCode(), and toString() methods.
+- <b>Nominal Tuple</b>:
+Records can be thought of as nominal tuples, providing a named structure for holding data.  <br><br>
+
+<b>Let us see with an Example:</b>
+```java
+//Person.java
+record Person(String name, int age) {}
+```
+
+Compile the record.
+```bash
+javac Person.java
+```
+
+Use javap to disassemble.
+```bash
+javap Person.class
+```
+
+Output:
+```java
+Compiled from "Person.java"
+public record Person(java.lang.String name, int age) {
+  public Person(java.lang.String, int);
+  public java.lang.String name();
+  public int age();
+  public final boolean equals(java.lang.Object);
+  public final int hashCode();
+  public final java.lang.String toString();
+}
+```
+
+Explanation:
+- javap shows that the Person record is a public class.
+- It automatically generates the constructor, accessor methods (name() and age()), equals(), hashCode(), and toString() methods.
+- The record implicitly extends the java.lang.Record class.
+
+
+Key Points:
+- Records are designed to be simple, immutable data carriers.
+- They automatically generate common methods, reducing boilerplate code.
+- javap helps you understand the underlying structure and bytecode of records.
+
+
+<mark>Common Use Cases</mark>:
+- Data Transfer Objects (DTOs): Records are ideal for representing data that needs to be transferred between different parts of an application.
+- API Responses: Records can be used to structure the data returned from API calls.
+- Immutable Data Structures: Records provide a convenient way to create immutable data structures, which can help make your code more reliable and easier to reason about.
+
+
+
+#### <mark>What is RowMapper?</mark>
 A `RowMapper` in Spring JDBC is a functional interface used to map a single row of a result set (from a database query) to a corresponding object in your Java application. It’s typically used with the JDBCTemplate class for query operations, allowing you to transform each row of the result set into a domain object.
 
+
+[!IMPORTANT]  
 Key Points About `RowMapper`:
  1. It simplifies the mapping of database rows to Java objects, reducing boilerplate code.
  2. It's particularly useful when you need custom mapping logic or when working with complex result sets.
@@ -262,7 +324,7 @@ record User(String userid, int age) { }
 
 
 
-#### <mark>>What should I use service to repository dto or entity or record?</mark>
+#### <mark>What should I use service to repository dto or entity or record?</mark>
 When using a service layer, you should generally interact with the repository using `Data Transfer Objects (DTOs)`, <br>rather than directly using `entities` or `records`,<br> as `DTO`s provide a cleaner separation of concerns by acting as a dedicated <b>data transfer mechanism</b> between layers <br>and allowing for controlled data exposure to the presentation layer, <br>while entities should remain within the data access layer
 
 #### <mark>Where should I keep my DTO class?</mark>

@@ -469,9 +469,51 @@ Many things are unknown, will cover and implement like
 
 
 ### <mark>`@Configuration`</mark>
-https://medium.com/tuanhdotnet/what-is-configuration-annotation-in-spring-8e4daa394a2d
+https://medium.com/tuanhdotnet/what-is-configuration-annotation-in-spring-8e4daa394a2d <br>
+```java
+//AppConfig.java
+@Configuration
+public class AppConfig {
 
+    @Bean
+    public MyService myService() {
+        return new MyServiceImpl();
+    }
+}
+```
 
+```java
+//MyService.java
+public interface MyService {
+    String sayHello();
+}
+```
+
+```java
+//MyServiceImpl.java
+public class MyServiceImpl implements MyService {
+
+    @Override
+    public String sayHello() {
+        return "Hello, Spring!";
+    }
+}
+```
+
+```java
+//MainApp.java
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class MainApp {
+
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        MyService myService = context.getBean(MyService.class);
+        System.out.println(myService.sayHello());
+    }
+}
+```
 
 
 ### <mark>Swagger</mark>

@@ -528,6 +528,8 @@ Sourc: https://www.baeldung.com/spring-boot-configure-data-source-programmatic
 |https://docs.spring.io/spring-boot/docs/1.1.0.M1/reference/html/boot-features-external-config.html|
 |https://quarkus.io/guides/config-yaml|
 |https://stackoverflow.com/questions/52627023/how-can-i-create-profiles-with-spring-boot-yaml|
+|https://www.baeldung.com/spring-boot-properties-env-variables|
+|https://cevheri.medium.com/java-spring-boot-overriding-environment-variables-guide-64283bee6132|
 
 
 ### <mark>Swagger</mark>

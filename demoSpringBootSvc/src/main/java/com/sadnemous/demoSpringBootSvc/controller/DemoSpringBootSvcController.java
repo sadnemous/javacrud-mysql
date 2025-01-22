@@ -3,6 +3,7 @@ package com.sadnemous.demoSpringBootSvc.controller;
 import com.sadnemous.demoSpringBootSvc.model.Employee;
 import com.sadnemous.demoSpringBootSvc.model.EmployeeInput;
 import com.sadnemous.demoSpringBootSvc.service.IDemoSpringBootSvcService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping()
+@Tag(name = "DemoSpringBootSvcController", description = "Demo Spring Boot Service Controller")
 public class DemoSpringBootSvcController {
 
     @Autowired

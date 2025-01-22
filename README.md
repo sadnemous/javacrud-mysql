@@ -469,7 +469,50 @@ Many things are unknown, will cover and implement like
 
 
 
+### <mark>Swagger</mark>
 
+it was easy:
+add this line to build.gradle.kts 
+```
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.3")
+```
+
+add this to controller file:
+```java
+package com.sadnemous.demoSpringBootSvc.controller;
+
+import com.sadnemous.demoSpringBootSvc.model.Employee;
+import com.sadnemous.demoSpringBootSvc.model.EmployeeInput;
+import com.sadnemous.demoSpringBootSvc.service.IDemoSpringBootSvcService;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping()
+@Tag(name = "DemoSpringBootSvcController", description = "Demo Spring Boot Service Controller")
+public class DemoSpringBootSvcController {
+
+    @Autowired
+    private IDemoSpringBootSvcService svcService;
+
+
+```
+swagger is available at: http://localhost:9008/swagger-ui/index.html <br>
+Up and Working... Yay :laugh:
+
+
+### <mark>Exception Handling:</mark> 
+Implemented, got the basic structure <br>
+<img src="exception.png">
+
+But still need to clarify many things to master on it.
+
+
+### <mark>Test Case:</mark>
+Let me try to implement one case:
 
 
 #### Important Read:<br>

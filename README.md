@@ -515,7 +515,13 @@ public class MainApp {
 }
 ```
 
+#### <mark> Use-case @Configuration for configuring DataSource programmatically</mark>
+Sourc: https://www.baeldung.com/spring-boot-configure-data-source-programmatic
 
+
+
+
+<br>
 ### <mark>Swagger</mark>
 
 it was easy:

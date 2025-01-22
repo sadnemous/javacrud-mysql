@@ -518,7 +518,16 @@ public class MainApp {
 #### <mark> Use-case @Configuration for configuring DataSource programmatically</mark>
 Sourc: https://www.baeldung.com/spring-boot-configure-data-source-programmatic
 
-
+#### Further read:
+|LINK|
+|---|
+|https://medium.com/@r.ali.ashik/spring-boot-property-file-best-practices-db1b26cc153c|
+|https://www.baeldung.com/spring-boot-properties-canonical-form|
+|https://github.com/khoubyari/spring-boot-rest-example/blob/master/src/main/resources/application.yml|
+|https://mkyong.com/spring-boot/spring-boot-profile-based-properties-and-yaml-example/|
+|https://docs.spring.io/spring-boot/docs/1.1.0.M1/reference/html/boot-features-external-config.html|
+|https://quarkus.io/guides/config-yaml|
+|https://stackoverflow.com/questions/52627023/how-can-i-create-profiles-with-spring-boot-yaml|
 
 
 ### <mark>Swagger</mark>

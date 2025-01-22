@@ -521,7 +521,6 @@ Sourc: https://www.baeldung.com/spring-boot-configure-data-source-programmatic
 
 
 
-<br>
 ### <mark>Swagger</mark>
 
 it was easy:

@@ -465,6 +465,11 @@ Many things are unknown, will cover and implement like
 - Test Coverage (Jacoco)
 - Full Fledge Exception Handling..
 - swagger
+- Concept of `@Configuration`
+
+
+### <mark>`@Configuration`</mark>
+https://medium.com/tuanhdotnet/what-is-configuration-annotation-in-spring-8e4daa394a2d
 
 
 

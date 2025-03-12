@@ -3,7 +3,7 @@
 ```sql
 In Ubuntu:
 sudo mysql -u root
-CREATE USER 'soumen'@'localhost' IDENTIFIED BY 'das';
+CREATE USER 'soumen'@'localhost' IDENTIFIED BY 'dAs@12345';
 
 
 

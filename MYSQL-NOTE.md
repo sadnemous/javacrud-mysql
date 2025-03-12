@@ -4,6 +4,14 @@
 In Ubuntu:
 sudo mysql -u root
 CREATE USER 'soumen'@'localhost' IDENTIFIED BY 'dAs@12345';
+mysql> SELECT user, host FROM mysql.user WHERE user = 'soumen';
++--------+-----------+
+| user   | host      |
++--------+-----------+
+| soumen | localhost |
++--------+-----------+
+1 row in set (0.00 sec)
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, REFERENCES, INDEX, DROP ON mydb.* TO 'soumen'@'localhost';
 
 
 

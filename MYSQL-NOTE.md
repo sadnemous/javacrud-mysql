@@ -25,7 +25,23 @@ INSERT INTO EMPLOYEE (ID, FirstName, LastName) VALUES (31, 'GARCIA', 'LUKE');
 INSERT INTO EMPLOYEE (ID, FirstName, LastName) VALUES (41, 'RAINA', 'SAMAY');
 INSERT INTO EMPLOYEE (ID, FirstName, LastName) VALUES (59, 'DIA', 'MIRZA');
 
-SELECT * FROM EMPLOYEE;
+# Table name is case-sensitive:
+mysql> select * from employee;
+  ERROR 1146 (42S02): Table 'mydb.employee' doesn't exist
+
+
+mysql> select * from EMPLOYEE;
++------+-----------+----------+
+| ID   | FirstName | LastName |
++------+-----------+----------+
+|   11 | HUUN      | QINSIK   |
+|   21 | MARTHA    | LEBDO    |
+|   31 | GARCIA    | LUKE     |
+|   41 | RAINA     | SAMAY    |
+|   59 | DIA       | MIRZA    |
++------+-----------+----------+
+5 rows in set (0.00 sec)
+
 ```
 
 ```

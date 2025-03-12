@@ -1,6 +1,10 @@
 ### System - my macbook air
 
 ```sql
+In Ubuntu:
+sudo mysql -u root
+
+
 mysql -u root
 create database mydb;
 GRANT ALL ON mydb.* TO 'soumen'@'%';

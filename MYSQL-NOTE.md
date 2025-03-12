@@ -14,7 +14,22 @@ mysql> SELECT user, host FROM mysql.user WHERE user = 'soumen';
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, REFERENCES, INDEX, DROP ON mydb.* TO 'soumen'@'localhost';
 
 
+# ==== relogin with soumen ====
+mysql -u soumen -p
+use mydb;
+CREATE TABLE EMPLOYEE (ID int, FirstName varchar(255), LastName varchar(255));
 
+INSERT INTO EMPLOYEE (ID, FirstName, LastName) VALUES (11, 'HUUN', 'QINSIK');
+INSERT INTO EMPLOYEE (ID, FirstName, LastName) VALUES (21, 'MARTHA', 'LEBDO');
+INSERT INTO EMPLOYEE (ID, FirstName, LastName) VALUES (31, 'GARCIA', 'LUKE');
+INSERT INTO EMPLOYEE (ID, FirstName, LastName) VALUES (41, 'RAINA', 'SAMAY');
+INSERT INTO EMPLOYEE (ID, FirstName, LastName) VALUES (59, 'DIA', 'MIRZA');
+
+SELECT * FROM EMPLOYEE;
+```
+
+```
+Macbook
 mysql -u root
 create database mydb;
 GRANT ALL ON mydb.* TO 'soumen'@'%';

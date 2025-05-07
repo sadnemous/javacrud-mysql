@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public interface IDemoSpringBootSvcService {
 
-    public Employee getEmp();
+    public Employee getEmp(EmployeeInput employeeInput);
     public Employee getEmployee(EmployeeInput employeeInput);
     public List <Employee> getAllEmployee(EmployeeInput employeeInput);
 }

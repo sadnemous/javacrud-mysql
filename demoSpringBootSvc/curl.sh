@@ -1,6 +1,6 @@
-curl -X POST http://localhost:9008/getemployee \
--H "Content-Type: application/json" \
--d '{ "id": 1, }'
+#curl -X POST http://localhost:9008/getemployee \
+#  -H "Content-Type: application/json" \
+#  -d '{ "id": 102, }'
 
 curl -H "Accept: application/json" \
      -H "Content-Type: application/json" \

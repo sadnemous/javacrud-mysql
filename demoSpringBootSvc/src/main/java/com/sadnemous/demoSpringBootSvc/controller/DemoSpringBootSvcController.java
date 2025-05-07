@@ -17,11 +17,11 @@ public class DemoSpringBootSvcController {
     @Autowired
     private IDemoSpringBootSvcService svcService;
 
-    @GetMapping("/getempsvc")
-    public ResponseEntity <Employee> getEmp ()
+    @PostMapping("/getempsvc")
+    public ResponseEntity <Employee> getEmp (@RequestBody EmployeeInput employeeInput)
     {
         //Employee emp = new Employee(11089, "Soumen", "Das");
-        Employee emp = svcService.getEmp();
+        Employee emp = svcService.getEmp(employeeInput);
         return ResponseEntity.ok(emp);
 
     }

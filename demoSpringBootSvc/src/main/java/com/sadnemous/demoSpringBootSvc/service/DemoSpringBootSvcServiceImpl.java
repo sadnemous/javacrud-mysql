@@ -14,10 +14,10 @@ public class DemoSpringBootSvcServiceImpl implements IDemoSpringBootSvcService{
     private DemoSpringBootSvcRepository repo;
 
     @Override
-    public Employee getEmp()
+    public Employee getEmp(EmployeeInput input)
     {
         try {
-            Employee employee = repo.getEmpFromDB();
+            Employee employee = repo.getEmployeeFromDB(input);
             if (employee == null) {
                 throw new NoEmployeeFoundException("from getempsvc, No employee found", null);
             }
